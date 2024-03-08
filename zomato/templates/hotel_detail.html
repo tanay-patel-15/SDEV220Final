@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Detail</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'hotel_detail.css' %}">
+</head>
+<body>
+    <div class="container">
+      <a href="{% url 'homepage' %}" class="home-button" > <h1> HOME </h1> <i class="fas fa-home"></i></a>
+
+        <h1>{{ hotel.name }}</h1>
+        <div class="hotel-info">
+            <p><strong>Address:</strong> {{ hotel.address }}</p>
+            <p><strong>Pool:</strong> {% if hotel.pool %}Yes{% else %}No{% endif %}</p>
+            <p><strong>Gym:</strong> {% if hotel.gym %}Yes{% else %}No{% endif %}</p>
+            <p><strong>Rating:</strong> {{ hotel.get_rating_display }}</p>
+        </div>
+        <div class="room-types">
+            <h2>Room Types</h2>
+            <ul>
+                {% for room_type in hotel.roomtypes.all %}
+                    <li>{{ room_type.type }} - {{ room_type.description }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

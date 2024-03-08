@@ -1,0 +1,77 @@
+/* homepage.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.hotel-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.hotel-list h2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.hotel-item {
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.hotel-item:hover {
+  transform: translateY(-5px);
+}
+
+.hotel-item a {
+  text-decoration: none;
+  color: #333;
+}
+
+.hotel-item img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.hotel-item h2 {
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+  background-color: #fff;
+}
+
+.reservation-btn {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.reservation-btn:hover {
+  background-color: #0056b3;
+}

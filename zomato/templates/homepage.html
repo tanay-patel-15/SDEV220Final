@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage.css' %}">
+    <style>
+        .hotel-item img {
+            text-align: center;
+            width: 200px;
+            height: 200px;
+            object-fit:cover; /* Preserve aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <h1> HOTELS RESERVATION PAGE </h1>
+    <div class="hotel-list">
+        {% for hotel in hotels %}
+          
+
+            <div class="hotel-item">
+                <a href="{% url 'hotel_detail' hotel.id %}">
+                  <h2>{{ hotel.name }}</h2>
+                  
+                    {% if hotel.logo %}
+                  <img src = " {{ hotel.logo.url }}" style="display: block;
+                  margin: 0 auto; 
+                  width: 200px;
+                  height: 200px;
+                  object-fit: cover;">
+                  {% endif %}
+                
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'create_reservation' %}" class="reservation-btn">Create Reservation</a>
+</body>
+</html>

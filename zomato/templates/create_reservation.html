@@ -1,0 +1,143 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Reservation</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'reservation.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        select,
+        input[type="date"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .home-button {
+            text-decoration: none;
+            color: #007bff;
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .home-button h1 {
+            border: 2px solid #007bff;
+            border-radius: 3px;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .home-button {
+    text-decoration: none;
+    color: #007bff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.home-button h1 {
+    border: 2px solid #007bff;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 0;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <a href="{% url 'homepage' %}" class="home-button" > <h1 style="border-style: solid; border-radius: 3px; border-color: blue; margin-left: 700px; margin-right: 700px; flex-wrap: wrap;"> HOME </h1> <i class="fas fa-home"></i></a>
+
+
+    <div class="container"> <!-- Wrap form inside a container -->
+        <h1>Create Reservation</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="phone">Phone:</label><br>
+            <input type="tel" id="phone" name="phone" required><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="hotel">Hotel:</label><br>
+            <select id="hotel" name="hotel" required>
+                {% for hotel in hotels %}
+                <option value="{{ hotel.id }}">{{ hotel.name }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="room">Room Type:</label><br>
+            <select id="room" name="room" required>
+                {% for room_type in room_types %}
+                <option value="{{ room_type.id }}">{{ room_type.type }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="check_in_date">Check-in Date:</label><br>
+            <input type="date" id="check_in_date" name="check_in_date" required><br>
+
+            <label for="check_out_date">Check-out Date:</label><br>
+            <input type="date" id="check_out_date" name="check_out_date" required><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div> <!-- End of container -->
+
+</body>
+</html>
