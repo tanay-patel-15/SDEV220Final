@@ -1,5 +1,7 @@
 {% load static %}
 
+<!-- create_reservation.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +19,7 @@
 
         .container {
             max-width: 600px;
+            margin-top: 20px;
             margin: 50px auto;
             background: #fff;
             padding: 20px;
@@ -84,7 +87,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 .home-button h1 {
@@ -104,7 +107,7 @@
 
     <div class="container"> <!-- Wrap form inside a container -->
         <h1>Create Reservation</h1>
-        <form method="POST">
+        <form method="GET" action="reservation-success">
             {% csrf_token %}
             <label for="name">Name:</label><br>
             <input type="text" id="name" name="name" required><br>
@@ -139,5 +142,14 @@
         </form>
     </div> <!-- End of container -->
 
+
+    
+
 </body>
+
+
+
 </html>
+
+
+

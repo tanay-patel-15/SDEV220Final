@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Success</title>
+    <link rel="stylesheet" href="{% static 'reservation_success.css' %}">
+    
+</head>
+<body>
+
+    <a href="{% url 'homepage' %}" class="home-button" > <p style="border-radius: 3px; border-color: whitesmoke; padding-left: 700px; padding-right: 700px; flex-wrap: wrap; border-style: none; font-size: 40px;"> H O M E </p> <i class="fas fa-home"></i></a>
+
+
+    <h1>Reservation Successful</h1>
+    
+    <p>ID: {{ res_id }}</p>
+
+    <p>Name: {{ reservation.name }}</p>
+    <p>Phone: {{ reservation.phone }}</p>
+    <p>Email: {{ reservation.email }}</p>
+    <p>Hotel: {{ reservation.hotel }}</p>
+    <p>Room: {{ reservation.room}}</p>
+    <p>Check-in Date: {{ reservation.check_in_date }}</p>
+    <p>Check-out Date: {{ reservation.check_out_date }}</p>
+</body>
+</html>
